@@ -51,4 +51,30 @@ describe('users register', () => {
     })
 })
 
-// describe()
+describe('users login', () => {
+    it('should return 200 success', async () => {
+        const res = await request(server)
+            .post('/api/auth/login')
+            .send({
+                "username": "yo",
+                "password":"yoyo"
+            })
+        expect(res.status).toBe(200)
+    })
+
+    it('should return type of application/json', async () => {
+        const res = await request(server)
+            .post('/api/auth/login')
+            .send({
+                "username": "yo",
+                "password":"yoyo"
+            })
+        expect(res.type).toBe('application/json')
+    })
+
+    it('should return 500 error', async () => {
+        const res = await request(server).post('/api/auth/login')
+        expect(res.status).toBe(500)
+    })
+    
+})
