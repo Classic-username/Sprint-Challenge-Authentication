@@ -43,6 +43,21 @@ router.post('/login', (req, res) => {
     })
 });
 
+
+
+// oops. wrote a delete. it works :shrug:
+// router.delete('/users/:id', (req, res) => {
+//   const id = req.params.id
+//   console.log(id)
+//   db.delUser(id)
+//     .then(() => {
+//       res.status(204).end()
+//     })
+//     .catch(err => {
+//       res.status(500).json({ message: 'error deleting user', err})
+//     })
+// })
+
 function genToken(user) {
   const payload = {
     id: user.id,

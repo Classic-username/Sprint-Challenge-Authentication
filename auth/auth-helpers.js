@@ -9,12 +9,10 @@ function addUser(users) {
 }
 
 function getUsersBy(filter){
-    const user = db('users')
+    return db('users')
     .where(filter)
     .first()
-    
-    console.log(filter)
-    return user
+
         
 }
 
