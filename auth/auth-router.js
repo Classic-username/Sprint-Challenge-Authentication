@@ -31,9 +31,15 @@ router.post('/login', (req, res) => {
   db.getUsersBy({username})
     .then(user => {
       if(user && bcrypt.compareSync(password, user.password)) {
+
         let token = genToken(user)
         res.status(200).json({ message: `Welcome ${user.username}!`, token})
+      } else {
+        res.status(401).json({ message: 'Invalid credentials'})
       }
+    })
+    .catch(err => {
+      res.status(500).json({ message: 'Error finding user in the database'})
     })
 });
 

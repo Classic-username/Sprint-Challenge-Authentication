@@ -4,21 +4,22 @@ function addUser(users) {
     return db('users')
         .insert(users)
         .then(res => {
-            const id = res [0]
-            return db('users')
-                .where({id})
-                .first()
+            return res
         })
 }
 
 function getUsersBy(filter){
-    return db('users')
-        .where({filter})
-        .first()
+    const user = db('users')
+    .where(filter)
+    .first()
+    
+    console.log(filter)
+    return user
+        
 }
 
 function getAllUsers() {
-    return db('units')
+    return db('users')
 }
 
 function delUser(id) {
