@@ -1,7 +1,12 @@
 const router = require('express').Router();
 
 router.post('/register', (req, res) => {
-  // implement registration
+  const user = req.body
+
+  if(user) {
+    
+  }
+
 });
 
 router.post('/login', (req, res) => {
